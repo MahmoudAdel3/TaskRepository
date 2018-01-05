@@ -34,7 +34,7 @@ namespace Task1.Controllers
         public ActionResult addcategory(Category cat)
         {
             category.add(cat);
-            return RedirectToAction("all_categories");
+            return RedirectToAction("index");
         }
 
         public ActionResult Details(int id)
