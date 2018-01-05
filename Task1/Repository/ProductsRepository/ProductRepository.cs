@@ -33,18 +33,18 @@ namespace Task1.Products
 
         }
 
-        public void Update(product p)
+        public void Update(product oldproduct)
         {
-            var product=db.Product.Find(p.ID);
-            product.Name = p.Name;
-            product.Price = p.Price;
+            var product=db.Product.Find(oldproduct.ID);
+            product.Name = oldproduct.Name;
+            product.Price = oldproduct.Price;
            
             db.SaveChanges();
         }
 
-        public void Add(product p)
+        public void Add(product product)
         {
-            db.Product.Add(p);
+            db.Product.Add(product);
             db.SaveChanges();
         }
     }

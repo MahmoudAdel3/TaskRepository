@@ -7,33 +7,32 @@ using Task1.Repository.CategoriesRepository;
 
 namespace Task1.Controllers
 {
+    
     [Authorize]
     public class CategoryController : Controller
     {
         private ICategory category;
 
-        public CategoryController(ICategory c)
+        public CategoryController(ICategory Repository)
         {
             
-            this.category = c;
+            this.category = Repository;
         }
 
-        
         public ActionResult index()
         {
             return View(category.Getall());
         }
 
-        
         public ActionResult addcategory()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult addcategory(Category cat)
+        public ActionResult addcategory(Category Category)
         {
-            category.add(cat);
+            category.add(Category);
             return RedirectToAction("index");
         }
 
@@ -58,8 +57,6 @@ namespace Task1.Controllers
             category.Delete(id);
             return RedirectToAction("index");
         }
-
-
 
 	}
 }

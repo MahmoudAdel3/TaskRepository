@@ -15,9 +15,9 @@ namespace Task1.Controllers
        private Iproduct product;
      
        
-        public HomeController(Iproduct p)
+        public HomeController(Iproduct Repository)
         {
-            this.product = p;
+            this.product = Repository;
             
         }
         public ActionResult index()

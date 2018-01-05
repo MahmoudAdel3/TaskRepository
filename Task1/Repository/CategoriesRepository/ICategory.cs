@@ -9,9 +9,9 @@ namespace Task1.Repository.CategoriesRepository
     public interface ICategory
     {
         IEnumerable<Category> Getall();
-        void add(Category cat);
+        void add(Category category);
         Category Get(int id);
-        void Update(Category p);
+        void Update(Category oldcategory);
         void Delete(int id);
     }
 }

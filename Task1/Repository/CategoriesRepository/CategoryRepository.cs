@@ -14,9 +14,9 @@ namespace Task1.Repository
             return (db.Category.ToList());
 
         }
-        public void add(Category cat)
+        public void add(Category category)
         {
-            db.Category.Add(cat);
+            db.Category.Add(category);
             db.SaveChanges();
 
         }
@@ -25,10 +25,10 @@ namespace Task1.Repository
             return (db.Category.Find(id));
         }
 
-        public void Update(Category p)
+        public void Update(Category oldcategory)
         {
-            var category = db.Category.Find(p.ID);
-            category.Name = p.Name;
+            var category = db.Category.Find(oldcategory.ID);
+            category.Name = oldcategory.Name;
             db.SaveChanges();
         }
 

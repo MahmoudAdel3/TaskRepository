@@ -15,10 +15,10 @@ namespace Task1.Controllers
         private Iproduct product;
         private ICategory category;
 
-        public ProductController(Iproduct p,ICategory c)
+        public ProductController(Iproduct ProductRepository,ICategory CategoryRepository)
         {
-            this.product = p;
-            this.category = c;
+            this.product = ProductRepository;
+            this.category = CategoryRepository;
         }
 
         public ActionResult index()
@@ -34,12 +34,12 @@ namespace Task1.Controllers
         }
 
         [HttpPost]
-        public ActionResult Add(product p)
+        public ActionResult Add(product Product)
         {
             if (ModelState.IsValid)
             {
-                product.Add(p);
-                return RedirectToAction("index");
+                product.Add(Product);
+                return RedirectToAction("index","Product");
             }
             return View();
         }
@@ -64,9 +64,9 @@ namespace Task1.Controllers
         }
         
         [HttpPost]
-        public ActionResult Update(product p)
+        public ActionResult Update(product oldproduct)
         {
-            product.Update(p);
+            product.Update(oldproduct);
             return RedirectToAction("index");
         }
 	}
